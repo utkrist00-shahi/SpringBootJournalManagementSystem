@@ -44,4 +44,15 @@ public class JournalService {
         journalRepository.deleteById(id);
     }
 
+    public JournalEntry updateJournalControllerbyId(JournalEntry entry , ObjectId id){
+       JournalEntry oldEntry = journalRepository.findById(id).orElse(null);
+       if(oldEntry != null){
+           oldEntry.setContent(!(entry.getContent() == null && entry.getContent().isEmpty()) ? entry.getContent() : oldEntry.getContent());
+           oldEntry.setTitle(!(entry.getTitle() == null && entry.getTitle().isEmpty()) ? entry.getTitle() : oldEntry.getTitle());
+           journalRepository.save(oldEntry);
+           return oldEntry;
+       }
+     return null;
+    }
+
 }

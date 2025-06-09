@@ -46,4 +46,8 @@ public class UserController {
         }
         return  new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+    @GetMapping("{userName}")
+    public User getUserByName(@PathVariable String userName){
+        return userService.findUserByName(userName);
+    }
 }

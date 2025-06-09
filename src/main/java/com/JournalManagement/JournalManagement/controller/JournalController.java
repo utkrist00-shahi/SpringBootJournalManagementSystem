@@ -59,4 +59,9 @@ public class JournalController {
        return true;
     }
 
+    @PutMapping("{myId}")
+    public JournalEntry updateJournalById(@PathVariable ObjectId myId, @RequestBody JournalEntry journalEntry){
+        return journalService.updateJournalControllerbyId(journalEntry, myId);
+    }
+
 }
