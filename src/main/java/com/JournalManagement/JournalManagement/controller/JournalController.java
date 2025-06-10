@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/journals")
+@CrossOrigin("*")
 public class JournalController {
 
     @Autowired
